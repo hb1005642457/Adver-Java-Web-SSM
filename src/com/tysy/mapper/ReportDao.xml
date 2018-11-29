@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tysy.dao.Reportdao">
+	
+	<select id="getReportByComid" resultType="com.tysy.pojo.Report" >
+		select * from report where comid =#{comid}
+	</select>
+	<select id="getReports" resultType="com.tysy.pojo.Report">
+		select * from report
+	</select>
+	<insert id="addReport">
+		insert into report values(null,#{memid},#{comid},#{text})
+	</insert>
+</mapper>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> new document </title>
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	@-webkit-keyframes  in{
+		0%{left:192px}
+		100%{left:0px}
+	}
+	@-webkit-keyframes  out{
+		0%{left:0px}
+		100%{left:-192px}
+	}
+	.wrap{
+		width:1152px;
+		height:648px;
+		border:1px solid #000;
+		margin:10px auto;
+		position:relative;
+	}
+	.wrap div{
+		float:left;
+		width:192px;
+		height:648px;
+		position:relative;
+		overflow:hidden;
+	}
+	.wrap div p{
+		width:192px;
+		height:648px;
+		background:url('dist/img/11.jpg');
+		position:absolute;
+		left:192px;
+		top:0;
+	}
+	.wrap div p:nth-child(2){
+		background:url('dist/img/22.jpg');
+	}
+	.wrap div p:nth-child(3){
+		background:url('dist/img/33.jpg');
+	}
+	.wrap div p:nth-child(4){
+		background:url('dist/img/44.jpeg');
+	}
+	.wrap div p:nth-child(5){
+		background:url('dist/img/55.jpg');
+	}
+	.wrap div:nth-child(2) p{
+		background-position:-192px 0px;
+	}
+	.wrap div:nth-child(3) p{
+		background-position:-384px 0px;
+	}
+	.wrap div:nth-child(4) p{
+		background-position:-576px 0px;
+	}
+	.wrap div:nth-child(5) p{
+		background-position:-768px 0px;
+	}
+	.wrap div:nth-child(6) p{
+		background-position:-960px 0px;
+	}
+	.wrap .show{
+		-webkit-animation:in 1s;
+		left:0px;
+	}
+	.wrap .hide{
+		-webkit-animation:out 1s;
+		left:192px;
+	}
+	.wrap .btn{
+		position:absolute;
+		bottom:10px;
+		right:30px;
+	}
+	.btn li{
+		list-style:none;
+		display:inline-block;
+		width:30px;
+		height:30px;
+		background:#ffff00;
+		opacity:0.6;
+		border-radius:15px;
+		cursor:pointer;
+	}
+	.btn li:hover{
+		background:#fd881e;
+	}
+  </style>
+ </head>
+
+ <body>
+	<div class="wrap">
+		<div>
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p class="hide"></p>
+		</div>
+		<div>
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p class="hide"></p>
+		</div>
+		<div>
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p class="hide"></p>
+		</div>
+		<div>
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p class="hide"></p>
+		</div>
+		<div>
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p class="hide"></p>
+		</div>
+		<div>
+			<p class="show"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p class="hide"></p>
+		</div>
+		<ul class="btn">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".btn li").click(function(){
+				var i=$(this).index();
+				$(".wrap div").each(function(index,element){
+					$(element).children("p").eq(i).addClass("show").removeClass("hide").siblings(".show").removeClass("show").addClass("hide");
+				});
+			});
+		});
+	</script>
+ </body>
+</html>

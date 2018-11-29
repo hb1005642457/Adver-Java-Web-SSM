@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tysy.dao.Companydao">
+	<select id="selectall" resultType="com.tysy.pojo.Company">
+		select * from company 
+		<where>
+			<if test="cname!=null">
+				and cname like concat('%',#{cname},'%')
+			</if>
+			<if test="job!=null">
+				and job like concat('%',#{job},'%')
+			</if>
+		</where>
+			limit #{pageStart},#{pagesize}
+	</select>
+	<select id="selectallByCondition" resultType="com.tysy.pojo.Company">
+		select * from company 
+		<where>
+			<if test="cname!=null">
+				and cname like concat('%',#{cname},'%')
+			</if>
+			<if test="job!=null">
+				and job like concat('%',#{job},'%')
+			</if>
+		</where>
+	</select>
+	<select id="getCompanys" resultType="com.tysy.pojo.Company" >
+		select * from company
+	</select>
+	
+	<select id="dataCount" resultType="java.lang.Long">
+		select count(id) from company
+	</select>
+	<select id="getComByUsername" resultType="com.tysy.pojo.Company">
+		select * from company where username = #{username}
+	</select>
+	<select id="getComById" resultType="com.tysy.pojo.Company">
+		select * from company where id = #{id}
+	</select>
+	<delete id="deleteCom">
+		delete from company where username = #{username}
+	</delete>
+	<update id="updateCom">
+		update company set cname=#{cname},address=#{address},tel=#{tel},job=#{job},boss=#{boss},message=#{message},password=#{password},jobdescribe=#{jobdescribe},moneycondition=#{moneycondition},weal=#{weal} where username=#{username}
+	</update>
+	
+</mapper>

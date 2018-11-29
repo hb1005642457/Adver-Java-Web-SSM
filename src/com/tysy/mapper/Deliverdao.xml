@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tysy.dao.Deliverdao">
+
+	 <select id="getDeliByMemid" resultType="com.tysy.pojo.Deliver" >
+		select * from deliver where memberid=#{memberid}
+	</select>
+	 <select id="getDeliByComid" resultType="com.tysy.pojo.Deliver" >
+		select * from deliver where companyid=#{companyid}
+	</select>
+	<insert id="addDeliver">
+		insert into deliver values(#{memberid},#{companyid},#{state})
+	</insert>
+	<update id="updateDeliver">
+		update deliver set memberid=#{memberid},state=#{state} where companyid=#{companyid}
+	</update>
+</mapper>

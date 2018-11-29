@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tysy.dao.Memberdao">
+
+	 <select id="getMembers" resultType="com.tysy.pojo.Member" >
+		select * from member
+	</select>
+	<select id="getMemByUsername" resultType="com.tysy.pojo.Member" >
+		select * from member where username = #{username}
+	</select>
+	<select id="getMemById" resultType="com.tysy.pojo.Member" >
+		select * from member where id = #{id}
+	</select>
+	<insert id="addMem">
+		insert into member values(null,#{name},#{birth},#{sex},#{graschool},#{username},#{password},#{level})
+	</insert>
+	<delete id="deletemem">
+		delete from member where username = #{username}
+	</delete>
+	<update id="updatemem">
+		update member set name=#{name},birth=#{birth},sex=#{sex},graschool=#{graschool},password=#{password} where username=#{username}
+	</update>
+</mapper>

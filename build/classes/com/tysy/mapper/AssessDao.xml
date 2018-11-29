@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tysy.dao.Assessdao">
+	
+	<select id="getAssessByComid" resultType="com.tysy.pojo.Assess" >
+		select * from assess where comid =#{comid}
+	</select>
+	<select id="getAssesses" resultType="com.tysy.pojo.Assess" >
+		select * from assess
+	</select>
+	<insert id="addAssess">
+		insert into assess values(null,#{memid},#{comid},#{text})
+	</insert>
+	<delete id="deleteAssess">
+		delete from assess where id = #{id}
+	</delete>
+</mapper>

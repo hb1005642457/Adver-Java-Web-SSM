@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tysy.dao.Vitaedao">
+
+	 <select id="selectVitaeByMemid" resultType="com.tysy.pojo.Vitae" >
+		select * from vitae where memid=#{memid}
+	</select>
+	<update id="updateVitae">
+		update vitae set name=#{name},country=#{country},professional=#{professional},address=#{address},jiguan=#{jiguan},record=#{record},tel=#{tel},email=#{email},edu1=#{edu1},edu2=#{edu2},jobback=#{jobback},self=#{self} where memid=#{memid}
+	</update>
+	<insert id="addVitae">
+		insert into vitae values(null,#{name},#{country},#{professional},#{address},#{jiguan},#{record},#{tel},#{email},#{edu1},#{edu2},#{jobback},#{self},#{memid})
+	</insert>
+</mapper>
